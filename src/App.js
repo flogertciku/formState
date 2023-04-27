@@ -5,17 +5,23 @@ import Inputs from './Components/Inputs';
 import UserForm from './Components/UserForm';
 import UserFormCopy from './Components/UserFormcopy';
 import ShowUser from './Components/ShowUser';
+import React, { useState } from "react";
 function App() {
+  const  [user,setUser] = useState({ 
+    username : "", 
+    email: "", 
+    password: "" 
+            });
+            
+  const [listaUser,setListaUser]=useState([])
+  console.log(listaUser)
+
   return (
     <div>
-      {/* < Nav name = {  "flogert"} numra= {[23,345,34265,32,42]} />
-      
-    <Inputs/> */}
-    {/* <UserForm/>
-     */}
-
-     {/* <ShowUser user = {user} /> */}
-     <UserFormCopy/>
+     <ShowUser listaUser={{}} emri = {user}  />
+     <UserFormCopy user= {user} vendosUser = {setUser} listaUser={listaUser} setListaUser={setListaUser} />
+     <Nav user= {user} vendosUser = {setUser}  />
+     
   </div>
     
   );

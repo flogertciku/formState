@@ -3,26 +3,27 @@ import ShowUser from "./ShowUser";
 
 const UserFormCopy = (props) =>{
    
-    const  [user,setUser] = useState({ 
-        username : "", 
-        email: "", 
-        password: "" 
-    });
+  const {user ,vendosUser,setListaUser,listaUser} = props;
 
    
     const HandleSubmit=(e)=>{
         e.preventDefault();
-        console.log(user)
-        setUser({ 
+        setListaUser([...listaUser,user])
+        // console.log(user)
+       vendosUser({ 
             username : "", 
             email: "", 
             password: "" ,
             
         })
+        
     }
     const HandleChange = (event) =>{
-        console.log(event)
-        setUser({...user,  [event.target.id] : event.target.value})
+        // console.log(event)
+        vendosUser({...user,  [event.target.id] : event.target.value})
+
+        // console.log(event.target.value)
+       
     }
 
     return(
